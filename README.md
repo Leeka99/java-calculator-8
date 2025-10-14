@@ -89,3 +89,16 @@ BUILD SUCCESSFUL in 0s
 라이브러리
 - camp.nextstep.edu.missionutils에서 제공하는 Console API를 사용하여 구현해야 한다.
   - 사용자가 입력하는 값은 camp.nextstep.edu.missionutils.Console의 readLine()을 활용한다.
+
+---
+## 커밋 메세지 컨벤션 정리
+| 타입    | 설명 |
+|-------|------|
+| feat  | 새로운 기능 추가 |
+| fix   | 버그 수정 |
+| docs  | 문서 수정 |
+| style | 코드 스타일 수정 (로직 변경 없음) |
+| refactor | 리팩터링 (동작 변화 없이 구조 개선) |
+| test  | 테스트 코드 추가/수정 |
+| chore | 빌드, 설정, 유지보수 작업 |
+
