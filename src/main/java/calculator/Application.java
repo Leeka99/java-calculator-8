@@ -37,6 +37,7 @@ public class Application {
             int answer = 0;
             char[] arr = input.toCharArray();
             String seperator = "";
+            if (!input.contains("\\n")) throw new IllegalArgumentException(); // 잘못된 커스텀 구분자 사용
             for (int i = 2; i < arr.length - 1; i++) {
                 if (arr[i] == '\\' && arr[i+1] == 'n') {
                     break;
@@ -52,6 +53,11 @@ public class Application {
                 answer += num;
             }
             System.out.println("결과 : " + answer);
+        }
+
+        // 숫자도 아니고 //로 시작하지도 않는다면 잘못된 커스텀 구분자 사용으로 판단.
+        if(!Character.isDigit(input.charAt(0)) && !input.startsWith("//")){
+            throw new IllegalArgumentException();
         }
     }
 }
