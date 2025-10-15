@@ -14,19 +14,18 @@ public class Application {
         if (Character.isDigit(input.charAt(0))) {
             String[] arr = input.split("[,:]");
             int answer = 0;
-
             for (String tokens : arr) {
-                for (char token : tokens.toCharArray()) {
-                    if (Character.isDigit(token)) {
-                        int number = token - '0';
-                        if (number < 0) {
-                            throw new IllegalArgumentException();
-                        }
-                        answer += token - '0';
-                    }
-                    if (!Character.isDigit(token)) {
-                        throw new IllegalArgumentException();
-                    }
+                int number;
+                try {
+                    number = Integer.parseInt(tokens);
+                    answer += number;
+                }
+                catch (NumberFormatException e) {
+                    throw new IllegalArgumentException(); // 숫자+문자 일 경우 예외
+                }
+
+                if (number < 0) {
+                    throw new IllegalArgumentException();
                 }
             }
             System.out.println("결과 : " + answer);
@@ -62,3 +61,4 @@ public class Application {
         }
     }
 }
+
