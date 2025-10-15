@@ -37,6 +37,7 @@ public class Application {
             int answer = 0;
             char[] arr = input.toCharArray();
             String seperator = "";
+            if (!input.matches("[^0-9]*")) throw new IllegalArgumentException(); // 문자만 입력된 경우
             if (!input.contains("\\n")) throw new IllegalArgumentException(); // 잘못된 커스텀 구분자 사용
             for (int i = 2; i < arr.length - 1; i++) {
                 if (arr[i] == '\\' && arr[i+1] == 'n') {
