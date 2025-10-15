@@ -12,17 +12,24 @@ public class Application {
 
         // 첫번째 문자가 숫자일 경우
         if (Character.isDigit(input.charAt(0))) {
-            char[] arr = input.toCharArray();
+            String[] arr = input.split("[,:]");
             int answer = 0;
-            for (char token : arr) {
-                if (Character.isDigit(token)) {
-                    answer += Character.getNumericValue(token);
-                }
-                if (!Character.isDigit(token) && token != ',' && token != ':') {
-                    return;
+
+            for (String tokens : arr) {
+                for (char token : tokens.toCharArray()) {
+                    if (Character.isDigit(token)) {
+                        int number = token - '0';
+                        if (number < 0) {
+                            throw new IllegalArgumentException();
+                        }
+                        answer += token - '0';
+                    }
+                    if (!Character.isDigit(token)) {
+                        throw new IllegalArgumentException();
+                    }
                 }
             }
-            System.out.println("합 :" + answer);
+            System.out.println("결과 : " + answer);
         }
 
         // 첫번째 문자가 //로 시작하는 경우
@@ -40,9 +47,11 @@ public class Application {
             String sep = input.split(Pattern.quote("\\n"))[1];
             String[] numbers = sep.split(Pattern.quote(seperator));
             for (String number : numbers) {
-                answer += Integer.parseInt(number);
+                int num = Integer.parseInt(number);
+                if (num < 0) throw new IllegalArgumentException();
+                answer += num;
             }
-            System.out.println(answer);
+            System.out.println("결과 : " + answer);
         }
     }
 }
