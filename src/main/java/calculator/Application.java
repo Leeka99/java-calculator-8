@@ -4,10 +4,9 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        String s = Console.readLine();
-        if (s.isBlank()) {
+        String input = Console.readLine();
+        if (input.isBlank()) {
             System.out.println(0);
         }
-
     }
 }
