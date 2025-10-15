@@ -1,9 +1,13 @@
 package calculator;
+import camp.nextstep.edu.missionutils.Console;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        System.out.println("한글 테스트");
-        System.out.println("abcde");
+        String s = Console.readLine();
+        if (s.isBlank()) {
+            System.out.println(0);
+        }
+
     }
 }
