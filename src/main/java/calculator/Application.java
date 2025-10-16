@@ -7,7 +7,8 @@ public class Application {
 
         String input = Console.readLine();
         if (input.isBlank()) {
-            System.out.println("공백입력");
+            System.out.println("결과 : " + 0);
+            return;
         }
 
         // 첫번째 문자가 숫자일 경우
