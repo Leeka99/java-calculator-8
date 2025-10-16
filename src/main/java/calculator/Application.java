@@ -25,7 +25,7 @@ public class Application {
             return customCase(input);
         }
 
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException(); // 이외의 입력
     }
 
     private static int commonCase(String input) {
@@ -41,7 +41,7 @@ public class Application {
             }
 
             if (number < 0) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(); // 음수 입력
             }
         }
         return answer;
@@ -50,7 +50,7 @@ public class Application {
     private static int customCase(String input) {
         int answer = 0;
         char[] arr = input.toCharArray();
-        String seperator = "";
+        String separator = "";
         if (input.matches("[^0-9]*")) {
             throw new IllegalArgumentException(); // 문자만 입력된 경우
         }
@@ -61,18 +61,18 @@ public class Application {
             if (arr[i] == '\\' && arr[i + 1] == 'n') {
                 break;
             }
-            seperator = seperator + arr[i];
+            separator = separator + arr[i];
         }
 
         String sep = input.split(Pattern.quote("\\n"))[1];
-        String[] numbers = sep.split(Pattern.quote(seperator));
+        String[] numbers = sep.split(Pattern.quote(separator));
         for (String number : numbers) {
             if (number.matches("[^0-9]*")) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(); // 생성된 커스텀 구분자 외 다른 구분자 사용
             }
             int num = Integer.parseInt(number);
             if (num < 0) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(); // 음수 입력
             }
             answer += num;
         }
