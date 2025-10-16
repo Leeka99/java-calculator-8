@@ -13,12 +13,12 @@ public class Application {
 
         // 첫번째 문자가 숫자일 경우
         if (Character.isDigit(input.charAt(0))) {
-            String[] arr = input.split("[,:]");
+            String[] tokens = input.split("[,:]");
             int answer = 0;
-            for (String tokens : arr) {
+            for (String token : tokens) {
                 int number;
                 try {
-                    number = Integer.parseInt(tokens);
+                    number = Integer.parseInt(token);
                     answer += number;
                 }
                 catch (NumberFormatException e) {
