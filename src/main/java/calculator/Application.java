@@ -13,25 +13,7 @@ public class Application {
         if (input.isBlank()) return 0;
 
         // 첫번째 문자가 숫자일 경우
-        if (Character.isDigit(input.charAt(0))) {
-            String[] tokens = input.split("[,:]");
-            int answer = 0;
-            for (String token : tokens) {
-                int number;
-                try {
-                    number = Integer.parseInt(token);
-                    answer += number;
-                }
-                catch (NumberFormatException e) {
-                    throw new IllegalArgumentException(); // 숫자+문자 일 경우 예외
-                }
-
-                if (number < 0) {
-                    throw new IllegalArgumentException();
-                }
-            }
-            return answer;
-        }
+        if (Character.isDigit(input.charAt(0))) return commonCase(input);
 
         // 첫번째 문자가 //로 시작하는 경우
         if (input.startsWith("//")) {
@@ -62,6 +44,26 @@ public class Application {
         }
 
         throw new IllegalArgumentException();
+    }
+
+    private static int commonCase(String input) {
+        String[] tokens = input.split("[,:]");
+        int answer = 0;
+        for (String token : tokens) {
+            int number;
+            try {
+                number = Integer.parseInt(token);
+                answer += number;
+            }
+            catch (NumberFormatException e) {
+                throw new IllegalArgumentException(); // 숫자+문자 일 경우 예외
+            }
+
+            if (number < 0) {
+                throw new IllegalArgumentException();
+            }
+        }
+        return answer;
     }
 }
 
