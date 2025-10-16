@@ -52,6 +52,7 @@ public class Application {
             String sep = input.split(Pattern.quote("\\n"))[1];
             String[] numbers = sep.split(Pattern.quote(seperator));
             for (String number : numbers) {
+                if (number.matches("[^0-9]*")) throw new IllegalArgumentException();
                 int num = Integer.parseInt(number);
                 if (num < 0)
                     throw new IllegalArgumentException();
